@@ -128,8 +128,8 @@ public class GeocodeResponse {
 		String formattedAddress = null;
 		if (isStatusOK()) {
 			List<Result> results = getResults();
-			if (results != null && !results.isEmpty()) {
-				formattedAddress = getResults().get(i).getFormatted_address();
+			if (results != null && -1 < i && i < results.size()) {
+				formattedAddress = results.get(i).getFormatted_address();
 			}
 		}
 		return formattedAddress;
@@ -144,8 +144,8 @@ public class GeocodeResponse {
 		Geometry geometry = null;
 		if (isStatusOK()) {
 			List<Result> results = getResults();
-			if (results != null && !results.isEmpty()) {
-				geometry = getResults().get(i).getGeometry();
+			if (results != null && -1 < i && i < results.size()) {
+				geometry = results.get(i).getGeometry();
 			}
 		}
 		return geometry;
