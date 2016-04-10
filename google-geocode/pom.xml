@@ -27,8 +27,8 @@
 
     <scm>
         <url>https://github.com/gustavomcarmo/google-geocode</url>
-        <connection>scm:git:git://github.com/gustavomcarmo/google-geocode.git</connection>
-        <developerConnection>scm:git:git@github.com:gustavomcarmo/google-geocode.git</developerConnection>
+        <connection>scm:git:https://github.com/gustavomcarmo/google-geocode</connection>
+        <developerConnection>scm:git:https://github.com/gustavomcarmo/google-geocode</developerConnection>
     </scm>
 
     <developers>
