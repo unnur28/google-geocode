@@ -41,11 +41,13 @@
     </developers>
     
     <distributionManagement>
-        <site>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
             <id>esignMavenRepo</id>
             <name>Esign Maven Repository</name>
             <url>sftp://esign.com.br/public_html/maven</url>
-        </site>
+            <layout>default</layout>
+        </repository>
     </distributionManagement>
 
     <properties>
