@@ -1,5 +1,7 @@
 # google-geocode
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Build status](https://travis-ci.org/esign-consulting/google-geocode.svg?branch=master)](https://travis-ci.org/esign-consulting/google-geocode) [![Quality Gate](https://sonarcloud.io/api/badges/gate?key=br.com.esign:google-geocode)](https://sonarcloud.io/dashboard/index/br.com.esign:google-geocode)
+
 Java library for Google Geocoding API.
 
 ## Code examples:
