@@ -9,7 +9,7 @@ jdk:
   - oraclejdk8
 
 script:
-  - mvn clean install sonar:sonar
+  - cd google-geocode; mvn clean install sonar:sonar
 
 cache:
   directories:
