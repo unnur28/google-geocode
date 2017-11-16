@@ -9,7 +9,7 @@ GoogleGeocode googleGeocode = new GoogleGeocode(address); // the address must no
 String jsonString = googleGeocode.getJsonString(); // throws IOException
 ```
 
-Alternatively, an object representing the Google Geocoding API json response can be get:
+Alternatively, an object representing the Google Geocoding API json response can be returned:
 
 ```java
 GoogleGeocode googleGeocode = new GoogleGeocode(latitude, longitude); // reverse geocoding
