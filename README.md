@@ -49,4 +49,4 @@ GoogleGeocode googleGeocode = new GoogleGeocode(address);
 googleGeocode.setLanguage(GoogleGeocodeLanguage.PORTUGUESE_BRAZIL);
 ```
 
-Enjoy! :simple_smile:
+Enjoy! :smile:
