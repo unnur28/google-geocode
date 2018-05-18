@@ -1,6 +1,6 @@
 # google-geocode
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Build status](https://travis-ci.org/esign-consulting/google-geocode.svg?branch=master)](https://travis-ci.org/esign-consulting/google-geocode) [![Quality Gate](https://sonarcloud.io/api/badges/gate?key=br.com.esign:google-geocode)](https://sonarcloud.io/dashboard/index/br.com.esign:google-geocode) [![GitHub release](https://img.shields.io/github/release/esign-consulting/google-geocode.svg)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Build status](https://travis-ci.org/esign-consulting/google-geocode.svg?branch=master)](https://travis-ci.org/esign-consulting/google-geocode) [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=br.com.esign:google-geocode&metric=alert_status)](https://sonarcloud.io/dashboard/index/br.com.esign:google-geocode) [![GitHub release](https://img.shields.io/github/release/esign-consulting/google-geocode.svg)]()
 
 Java library for Google Geocoding API.
 
