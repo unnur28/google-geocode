@@ -9,9 +9,12 @@ jdk:
   - oraclejdk8
 
 script:
-  - cd google-geocode; mvn clean install sonar:sonar
+  - mvn clean install sonar:sonar -f google-geocode
 
 cache:
   directories:
     - '$HOME/.m2/repository'
     - '$HOME/.sonar/cache'
+
+after_success:
+  - cp .travis.settings.xml $HOME/.m2/settings.xml && mvn source:jar deploy -DskipTests=true -f google-geocode

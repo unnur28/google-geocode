@@ -41,12 +41,13 @@
     </developers>
     
     <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
         <repository>
-            <uniqueVersion>false</uniqueVersion>
-            <id>esignMavenRepo</id>
-            <name>Esign Maven Repository</name>
-            <url>ftp://esign.com.br/public_html/maven</url>
-            <layout>default</layout>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
         </repository>
     </distributionManagement>
 
@@ -125,13 +126,6 @@
                 <version>2.5.3</version>
             </plugin>
         </plugins>
-        <extensions>
-            <extension>
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-ftp</artifactId>
-                <version>3.0.0</version>
-            </extension>
-        </extensions>
     </build>
 
 </project>
