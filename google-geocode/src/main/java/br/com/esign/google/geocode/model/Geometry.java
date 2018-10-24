@@ -23,21 +23,24 @@
  */
 package br.com.esign.google.geocode.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Geometry {
 
     private final Bounds bounds;
     private final Location location;
-    private final String location_type;
+    @JsonProperty("location_type")
+    private final String locationType;
     private final Bounds viewport;
 
     public Geometry() {
         this(null, null, null, null);
     }
 
-    public Geometry(Bounds bounds, Location location, String location_type, Bounds viewport) {
+    public Geometry(Bounds bounds, Location location, String locationType, Bounds viewport) {
         this.bounds = bounds;
         this.location = location;
-        this.location_type = location_type;
+        this.locationType = locationType;
         this.viewport = viewport;
     }
 
@@ -49,8 +52,8 @@ public class Geometry {
         return location;
     }
 
-    public String getLocation_type() {
-        return location_type;
+    public String getLocationType() {
+        return locationType;
     }
 
     public Bounds getViewport() {

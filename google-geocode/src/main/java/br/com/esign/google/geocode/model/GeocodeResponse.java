@@ -26,12 +26,14 @@ package br.com.esign.google.geocode.model;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class GeocodeResponse {
 
     private final List<Result> results;
     private final String status;
-    private final String error_message;
+    @JsonProperty("error_message")
+    private final String errorMessage;
 
     @JsonIgnore
     private int index = 0;
@@ -40,10 +42,10 @@ public class GeocodeResponse {
         this(null, null, null);
     }
 
-    public GeocodeResponse(List<Result> results, String status, String error_message) {
+    public GeocodeResponse(List<Result> results, String status, String errorMessage) {
         this.results = results;
         this.status = status;
-        this.error_message = error_message;
+        this.errorMessage = errorMessage;
     }
 
     public List<Result> getResults() {
@@ -54,8 +56,8 @@ public class GeocodeResponse {
         return status;
     }
 
-    public String getError_message() {
-        return error_message;
+    public String getErrorMessage() {
+        return errorMessage;
     }
 
     public int getIndex() {
@@ -74,7 +76,7 @@ public class GeocodeResponse {
         if (isStatusOK()) {
             List<Result> results = getResults();
             if (results != null && -1 < i && i < results.size()) {
-                for (AddressComponent addressComponent : results.get(i).getAddress_components()) {
+                for (AddressComponent addressComponent : results.get(i).getAddressComponents()) {
                     for (String type : addressComponent.getTypes()) {
                         if (type.equals(t.getValue())) {
                             return addressComponent;
@@ -156,7 +158,7 @@ public class GeocodeResponse {
         if (isStatusOK()) {
             List<Result> results = getResults();
             if (results != null && -1 < i && i < results.size()) {
-                formattedAddress = results.get(i).getFormatted_address();
+                formattedAddress = results.get(i).getFormattedAddress();
             }
         }
         return formattedAddress;

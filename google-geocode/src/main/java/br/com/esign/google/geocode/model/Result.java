@@ -26,12 +26,15 @@ package br.com.esign.google.geocode.model;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Result {
 
-    private final List<AddressComponent> address_components;
-    private final String formatted_address;
+    @JsonProperty("address_components")
+    private final List<AddressComponent> addressComponents;
+    @JsonProperty("formatted_address")
+    private final String formattedAddress;
     private final Geometry geometry;
     private final List<String> types;
 
@@ -39,19 +42,19 @@ public class Result {
         this(null, null, null, null);
     }
 
-    public Result(List<AddressComponent> address_components, String formatted_address, Geometry geometry, List<String> types) {
-        this.address_components = address_components;
-        this.formatted_address = formatted_address;
+    public Result(List<AddressComponent> addressComponents, String formattedAddress, Geometry geometry, List<String> types) {
+        this.addressComponents = addressComponents;
+        this.formattedAddress = formattedAddress;
         this.geometry = geometry;
         this.types = types;
     }
 
-    public List<AddressComponent> getAddress_components() {
-        return address_components;
+    public List<AddressComponent> getAddressComponents() {
+        return addressComponents;
     }
 
-    public String getFormatted_address() {
-        return formatted_address;
+    public String getFormattedAddress() {
+        return formattedAddress;
     }
 
     public Geometry getGeometry() {
