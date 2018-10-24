@@ -39,7 +39,8 @@ public class GoogleGeocode {
 	private String languageCode = System.getProperty("google.geocode.language.code");
 	
 	private String address;
-	private String lat, lng;
+	private String lat;
+	private String lng;
 	private boolean reverse;
 	
 	public GoogleGeocode(String address) {
@@ -82,8 +83,7 @@ public class GoogleGeocode {
 	public GeocodeResponse getResponseObject() throws IOException {
 		String json = getJsonString();
 		ObjectMapper mapper = new ObjectMapper();
-		GeocodeResponse response = mapper.readValue(json, GeocodeResponse.class);
-		return response;
+		return mapper.readValue(json, GeocodeResponse.class);
 	}
 	
 }

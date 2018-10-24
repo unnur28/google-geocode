@@ -93,7 +93,7 @@ public class GeocodeResponse {
 
     public String getSublocalityLongName(int i) {
         AddressComponent addressComponent = getAddressComponentByType(i, AddressComponentType.SUBLOCALITY);
-        return (addressComponent == null) ? null : addressComponent.getLong_name();
+        return (addressComponent == null) ? null : addressComponent.getLongName();
     }
 
     @JsonIgnore
@@ -103,7 +103,7 @@ public class GeocodeResponse {
 
     public String getNeighborhoodLongName(int i) {
         AddressComponent addressComponent = getAddressComponentByType(i, AddressComponentType.NEIGHBORHOOD);
-        return (addressComponent == null) ? null : addressComponent.getLong_name();
+        return (addressComponent == null) ? null : addressComponent.getLongName();
     }
 
     @JsonIgnore
@@ -113,7 +113,7 @@ public class GeocodeResponse {
 
     public String getLocalityLongName(int i) {
         AddressComponent addressComponent = getAddressComponentByType(i, AddressComponentType.LOCALITY);
-        return (addressComponent == null) ? null : addressComponent.getLong_name();
+        return (addressComponent == null) ? null : addressComponent.getLongName();
     }
 
     @JsonIgnore
@@ -123,7 +123,7 @@ public class GeocodeResponse {
 
     public String getAdministrativeAreaLevel2LongName(int i) {
         AddressComponent addressComponent = getAddressComponentByType(i, AddressComponentType.ADMINISTRATIVE_AREA_LEVEL_2);
-        return (addressComponent == null) ? null : addressComponent.getLong_name();
+        return (addressComponent == null) ? null : addressComponent.getLongName();
     }
 
     @JsonIgnore
@@ -133,7 +133,7 @@ public class GeocodeResponse {
 
     public String getAdministrativeAreaLevel1LongName(int i) {
         AddressComponent addressComponent = getAddressComponentByType(i, AddressComponentType.ADMINISTRATIVE_AREA_LEVEL_1);
-        return (addressComponent == null) ? null : addressComponent.getLong_name();
+        return (addressComponent == null) ? null : addressComponent.getLongName();
     }
 
     @JsonIgnore
@@ -143,7 +143,7 @@ public class GeocodeResponse {
 
     public String getCountryShortName(int i) {
         AddressComponent addressComponent = getAddressComponentByType(i, AddressComponentType.COUNTRY);
-        return (addressComponent == null) ? null : addressComponent.getShort_name();
+        return (addressComponent == null) ? null : addressComponent.getShortName();
     }
 
     @JsonIgnore

@@ -25,28 +25,32 @@ package br.com.esign.google.geocode.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class AddressComponent {
 
-    private final String long_name;
-    private final String short_name;
+    @JsonProperty("long_name")
+    private final String longName;
+    @JsonProperty("short_name")
+    private final String shortName;
     private final List<String> types;
 
     public AddressComponent() {
         this(null, null, null);
     }
 
-    public AddressComponent(String long_name, String short_name, List<String> types) {
-        this.long_name = long_name;
-        this.short_name = short_name;
+    public AddressComponent(String longName, String shortName, List<String> types) {
+        this.longName = longName;
+        this.shortName = shortName;
         this.types = types;
     }
 
-    public String getLong_name() {
-        return long_name;
+    public String getLongName() {
+        return longName;
     }
 
-    public String getShort_name() {
-        return short_name;
+    public String getShortName() {
+        return shortName;
     }
 
     public List<String> getTypes() {
