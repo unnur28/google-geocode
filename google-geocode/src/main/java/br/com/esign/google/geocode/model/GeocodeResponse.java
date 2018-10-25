@@ -24,6 +24,7 @@
 package br.com.esign.google.geocode.model;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -73,19 +74,14 @@ public class GeocodeResponse {
     }
 
     public AddressComponent getAddressComponentByType(int i, AddressComponentType t) {
-        if (isStatusOK()) {
-            List<Result> results = getResults();
-            if (results != null && -1 < i && i < results.size()) {
-                for (AddressComponent addressComponent : results.get(i).getAddressComponents()) {
-                    for (String type : addressComponent.getTypes()) {
-                        if (type.equals(t.getValue())) {
-                            return addressComponent;
-                        }
-                    }
-                }
-            }
+        AddressComponent addressComponent;
+        try {
+            Optional<AddressComponent> optional = getResult(i).getAddressComponents().stream().filter(a -> a.getTypes().contains(t.getValue())).findFirst();
+            addressComponent =  optional.isPresent() ? optional.get() : null;
+        } catch(NullPointerException e) {
+            addressComponent = null;
         }
-        return null;
+        return addressComponent;
     }
 
     @JsonIgnore
@@ -154,12 +150,11 @@ public class GeocodeResponse {
     }
 
     public String getFormattedAddress(int i) {
-        String formattedAddress = null;
-        if (isStatusOK()) {
-            List<Result> results = getResults();
-            if (results != null && -1 < i && i < results.size()) {
-                formattedAddress = results.get(i).getFormattedAddress();
-            }
+        String formattedAddress;
+        try {
+            formattedAddress = getResult(i).getFormattedAddress();
+        } catch(NullPointerException e) {
+            formattedAddress = null;
         }
         return formattedAddress;
     }
@@ -170,12 +165,11 @@ public class GeocodeResponse {
     }
 
     public Geometry getGeometry(int i) {
-        Geometry geometry = null;
-        if (isStatusOK()) {
-            List<Result> results = getResults();
-            if (results != null && -1 < i && i < results.size()) {
-                geometry = results.get(i).getGeometry();
-            }
+        Geometry geometry;
+        try {
+            geometry = getResult(i).getGeometry();
+        } catch(NullPointerException e) {
+            geometry = null;
         }
         return geometry;
     }
@@ -183,6 +177,16 @@ public class GeocodeResponse {
     @JsonIgnore
     public boolean isStatusOK() {
         return GeocodeResponseStatus.OK.getValue().equals(getStatus());
+    }
+
+    public Result getResult(int i) {
+        Result result;
+        try {
+            result = getResults().get(i);
+        } catch(NullPointerException | IndexOutOfBoundsException e) {
+            result = null;
+        }
+        return result;
     }
 
 }
