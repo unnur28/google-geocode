@@ -23,11 +23,13 @@ public class GoogleGeocodeTest {
 
 	@Test
 	public void testGetResponseObject2() throws IOException {
-		GoogleGeocode googleGeocode = new GoogleGeocode(apiKey, "R. 7 de Abril, 346 - Centro, São Paulo - SP, 01044-000, Brazil");
+		final String address = "R. 7 de Abril, 346 - Centro, São Paulo - SP, 01044-000, Brazil";
+		GoogleGeocode googleGeocode = new GoogleGeocode(apiKey, address);
 		googleGeocode.setLanguage(GoogleGeocodeLanguage.PORTUGUESE_BRAZIL);
 		GeocodeResponse geocodeResponse = googleGeocode.getResponseObject();
 		assertNotNull(geocodeResponse);
 		assertTrue(geocodeResponse.isStatusOK());
+		assertEquals(address, geocodeResponse.getFormattedAddress());
 		assertEquals("346", geocodeResponse.getAddressComponentByType(AddressComponentType.STREET_NUMBER).getShortName());
 	}
 	
