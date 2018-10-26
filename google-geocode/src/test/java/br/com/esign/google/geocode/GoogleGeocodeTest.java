@@ -10,10 +10,20 @@ import br.com.esign.google.geocode.model.GeocodeResponse;
 
 public class GoogleGeocodeTest {
 	
+	private final static String apiKey = System.getProperty("google.geocode.api.key");
+
 	@Test
-	public void testGetResponseObject() throws IOException {
-		String apiKey = System.getProperty("google.geocode.api.key");
+	public void testGetResponseObject1() throws IOException {
 		GoogleGeocode googleGeocode = new GoogleGeocode(apiKey, "-23.544969", "-46.641846");
+		GeocodeResponse geocodeResponse = googleGeocode.getResponseObject();
+		assertNotNull(geocodeResponse);
+		assertNotNull(geocodeResponse.getStatus());
+	}
+
+	@Test
+	public void testGetResponseObject2() throws IOException {
+		GoogleGeocode googleGeocode = new GoogleGeocode(apiKey, "R. 7 de Abril, 346 - Centro, São Paulo - SP, 01044-000, Brazil");
+		googleGeocode.setLanguage(GoogleGeocodeLanguage.PORTUGUESE_BRAZIL);
 		GeocodeResponse geocodeResponse = googleGeocode.getResponseObject();
 		assertNotNull(geocodeResponse);
 		assertNotNull(geocodeResponse.getStatus());
