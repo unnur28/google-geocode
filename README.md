@@ -47,7 +47,7 @@ Geometry geometry = geocodeResponse.getGeometry(index);
 The Google Geocoding API language parameter can also be defined:
 
 ```java
-GoogleGeocode googleGeocode = new GoogleGeocode(address);
+GoogleGeocode googleGeocode = new GoogleGeocode(your_api_key, address);
 googleGeocode.setLanguage(GoogleGeocodeLanguage.PORTUGUESE_BRAZIL);
 ```
 
