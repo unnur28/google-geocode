@@ -31,6 +31,9 @@ public class GoogleGeocodeTest {
 		assertTrue(geocodeResponse.isStatusOK());
 		assertEquals(address, geocodeResponse.getFormattedAddress());
 		assertEquals("346", geocodeResponse.getAddressComponentByType(AddressComponentType.STREET_NUMBER).getShortName());
+		assertEquals("Centro", geocodeResponse.getSublocalityLongName());
+		assertEquals("São Paulo", geocodeResponse.getAdministrativeAreaLevel2LongName());
+		assertEquals("BR", geocodeResponse.getCountryShortName());
 	}
 	
 }
