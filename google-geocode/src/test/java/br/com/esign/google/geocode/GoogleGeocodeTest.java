@@ -35,5 +35,15 @@ public class GoogleGeocodeTest {
 		assertEquals("São Paulo", geocodeResponse.getAdministrativeAreaLevel2LongName());
 		assertEquals("BR", geocodeResponse.getCountryShortName());
 	}
+
+	@Test
+	public void testGetResponseObject3() throws IOException {
+		GoogleGeocode googleGeocode = new GoogleGeocode("fakeApiKey", "-23.544969", "-46.641846");
+		GeocodeResponse geocodeResponse = googleGeocode.getResponseObject();
+		assertNotNull(geocodeResponse);
+		assertFalse(geocodeResponse.isStatusOK());
+		assertNotNull(geocodeResponse.getErrorMessage());
+		assertNull(geocodeResponse.getGeometry());
+	}
 	
 }
