@@ -1,11 +1,12 @@
 package br.com.esign.google.geocode;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 import java.io.IOException;
 
 import org.junit.Test;
 
+import br.com.esign.google.geocode.model.AddressComponentType;
 import br.com.esign.google.geocode.model.GeocodeResponse;
 
 public class GoogleGeocodeTest {
@@ -17,7 +18,7 @@ public class GoogleGeocodeTest {
 		GoogleGeocode googleGeocode = new GoogleGeocode(apiKey, "-23.544969", "-46.641846");
 		GeocodeResponse geocodeResponse = googleGeocode.getResponseObject();
 		assertNotNull(geocodeResponse);
-		assertNotNull(geocodeResponse.getStatus());
+		assertTrue(geocodeResponse.isStatusOK());
 	}
 
 	@Test
@@ -26,7 +27,8 @@ public class GoogleGeocodeTest {
 		googleGeocode.setLanguage(GoogleGeocodeLanguage.PORTUGUESE_BRAZIL);
 		GeocodeResponse geocodeResponse = googleGeocode.getResponseObject();
 		assertNotNull(geocodeResponse);
-		assertNotNull(geocodeResponse.getStatus());
+		assertTrue(geocodeResponse.isStatusOK());
+		assertEquals("346", geocodeResponse.getAddressComponentByType(AddressComponentType.STREET_NUMBER).getShortName());
 	}
 	
 }
