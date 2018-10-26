@@ -44,6 +44,9 @@ public class GoogleGeocodeTest {
 		assertFalse(geocodeResponse.isStatusOK());
 		assertNotNull(geocodeResponse.getErrorMessage());
 		assertNull(geocodeResponse.getGeometry());
+		assertNull(geocodeResponse.getAdministrativeAreaLevel1LongName());
+		assertNull(geocodeResponse.getLocalityLongName());
+		assertNull(geocodeResponse.getNeighborhoodLongName());
 	}
 	
 }
