@@ -17,4 +17,4 @@ cache:
     - '$HOME/.sonar/cache'
 
 after_success:
-  - cp .travis.settings.xml $HOME/.m2/settings.xml && mvn source:jar javadoc:jar deploy -DskipTests=true -f google-geocode
+  - cp .travis.settings.xml $HOME/.m2/settings.xml && mvn source:jar javadoc:jar gpg:sign deploy -DskipTests=true -f google-geocode
