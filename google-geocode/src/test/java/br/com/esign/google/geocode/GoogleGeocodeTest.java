@@ -12,7 +12,8 @@ public class GoogleGeocodeTest {
 	
 	@Test
 	public void testGetResponseObject() throws IOException {
-		GoogleGeocode googleGeocode = new GoogleGeocode("-23.544969", "-46.641846");
+		String apiKey = System.getProperty("google.geocode.api.key");
+		GoogleGeocode googleGeocode = new GoogleGeocode(apiKey, "-23.544969", "-46.641846");
 		GeocodeResponse geocodeResponse = googleGeocode.getResponseObject();
 		assertNotNull(geocodeResponse);
 		assertNotNull(geocodeResponse.getStatus());

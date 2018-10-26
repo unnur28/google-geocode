@@ -7,14 +7,14 @@ Java library for Google Geocoding API.
 ## Code examples:
 
 ```java
-GoogleGeocode googleGeocode = new GoogleGeocode(address); // the address must not be encoded
+GoogleGeocode googleGeocode = new GoogleGeocode(your_api_key, address); // the address must not be encoded
 String jsonString = googleGeocode.getJsonString(); // throws IOException
 ```
 
 Alternatively, an object representing the Google Geocoding API json response can be returned:
 
 ```java
-GoogleGeocode googleGeocode = new GoogleGeocode(latitude, longitude); // reverse geocoding
+GoogleGeocode googleGeocode = new GoogleGeocode(your_api_key, latitude, longitude); // reverse geocoding
 GeocodeResponse geocodeResponse = googleGeocode.getResponseObject(); // throws IOException
 ```
 
