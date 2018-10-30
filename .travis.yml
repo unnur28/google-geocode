@@ -13,7 +13,7 @@ before_install:
 - gpg --fast-import codesigning.asc
 
 script:
-- mvn clean install sonar:sonar -Dgoogle.geocode.api.key=$GOOGLE_GEOCODE_API_KEY -f google-geocode
+- mvn clean test sonar:sonar -Dgoogle.geocode.api.key=$GOOGLE_GEOCODE_API_KEY -f google-geocode
 
 cache:
   directories:
@@ -21,4 +21,4 @@ cache:
   - "$HOME/.sonar/cache"
 
 after_success:
-- cp .travis.settings.xml $HOME/.m2/settings.xml && mvn source:jar javadoc:jar gpg:sign deploy -DskipTests=true -Dgpg.passphrase=$GPG_PASSPHRASE -f google-geocode
+- cp .travis.settings.xml $HOME/.m2/settings.xml && mvn package source:jar javadoc:jar gpg:sign deploy -DskipTests=true -Dgpg.passphrase=$GPG_PASSPHRASE -f google-geocode
