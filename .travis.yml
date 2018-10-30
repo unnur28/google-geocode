@@ -10,6 +10,7 @@ jdk:
 
 before_install:
 - openssl aes-256-cbc -K $encrypted_51ce51fc7d9b_key -iv $encrypted_51ce51fc7d9b_iv -in codesigning.asc.enc -out codesigning.asc -d
+- gpg --fast-import codesigning.asc
 
 script:
 - mvn clean install sonar:sonar -Dgoogle.geocode.api.key=$GOOGLE_GEOCODE_API_KEY -f google-geocode
