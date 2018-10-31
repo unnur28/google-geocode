@@ -4,18 +4,30 @@
 
 Java library for Google Geocoding API.
 
-## Code examples:
+## pom.xml
+
+The library is distributed from the Maven Central Repository since the release of the version 2.0. Just include the following dependency in your pom.xml in order to use the library:
+
+```xml
+<dependency>
+    <groupId>br.com.esign</groupId>
+    <artifactId>google-geocode</artifactId>
+    <version>2.0</version>
+</dependency>
+```
+
+## Code examples
 
 ```java
 GoogleGeocode googleGeocode = new GoogleGeocode(your_api_key, address); // the address must not be encoded
-String jsonString = googleGeocode.getJsonString(); // throws IOException
+String jsonString = googleGeocode.getJsonString(); // may throw IOException
 ```
 
 Alternatively, an object representing the Google Geocoding API json response can be returned:
 
 ```java
 GoogleGeocode googleGeocode = new GoogleGeocode(your_api_key, latitude, longitude); // reverse geocoding
-GeocodeResponse geocodeResponse = googleGeocode.getResponseObject(); // throws IOException
+GeocodeResponse geocodeResponse = googleGeocode.getResponseObject(); // may throw IOException
 ```
 
 This object is usefull to get the response content:
