@@ -25,4 +25,4 @@ cache:
   - "$HOME/.sonar/cache"
 
 after_success:
-- cp .travis.settings.xml $HOME/.m2/settings.xml && mvn package source:jar javadoc:jar gpg:sign deploy -DskipTests=true -Dgpg.passphrase=$GPG_PASSPHRASE -f google-geocode
+- mvn package source:jar javadoc:jar gpg:sign deploy -DskipTests=true -Dgpg.passphrase=$GPG_PASSPHRASE -s .travis.settings.xml -f google-geocode
