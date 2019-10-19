@@ -12,7 +12,7 @@ The library is distributed from the Maven Central Repository since the release o
 <dependency>
     <groupId>br.com.esign</groupId>
     <artifactId>google-geocode</artifactId>
-    <version>2.0.1</version>
+    <version>2.0.2</version>
 </dependency>
 ```
 
